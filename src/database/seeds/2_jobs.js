@@ -18,7 +18,17 @@ exports.seed = function (knex) {
         {
           jobName: "yönetici",
           jobDescription: "yöneten kişi",
-          applierCount: 8,
+          applierCount: 5,
+        },
+        {
+          jobName: "asistan",
+          jobDescription: "asistan kişi",
+          applierCount: 3,
+        },
+        {
+          jobName: "çaycı",
+          jobDescription: "çaycı kişi",
+          applierCount: 1,
         },
       ]);
     });

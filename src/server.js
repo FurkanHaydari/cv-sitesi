@@ -1,22 +1,18 @@
 require("dotenv").config();
 
-// global çağırımlar
 const fastify = require("fastify")({ logger: true });
 
-// lokal çağırımlar
+const PORT = process.env.PORT || 3000;
+
+fastify.register(require("fastify-cors"), {
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+});
+
 const jobRoutes = require("./routes/jobs");
 const userRoutes = require("./routes/user");
 const guestRoutes = require("./routes/guest");
-
-// değişkenler
-const PORT = process.env.PORT || 3000;
-
-// haberler için routelar
-// newsRoutes.forEach((route, index) => {
-//   fastify.route(route);
-// });
-
-// kullanıcılar için routelar
+const adminRoutes = require("./routes/admin");
 
 jobRoutes.forEach((route, index) => {
   fastify.route(route);
@@ -25,6 +21,9 @@ userRoutes.forEach((route, index) => {
   fastify.route(route);
 });
 guestRoutes.forEach((route, index) => {
+  fastify.route(route);
+});
+adminRoutes.forEach((route, index) => {
   fastify.route(route);
 });
 

@@ -3,7 +3,7 @@ const knex = require("../lib/knex");
 const jwt = require("jsonwebtoken");
 // kullanıcılar için
 exports.findAll = async (table, select = "*") => {
-  let response = await knex.from(table).select(select).where("isActive", 1);
+  let response = await knex.from(table).select(select);
   // veri döner
   return { findallResponse: response };
 };

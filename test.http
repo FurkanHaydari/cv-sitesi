@@ -4,14 +4,24 @@ GET http://{{localhost}}:3000/ HTTP/1.1
 
 
 #--------------------------JOBS----------------------------
+
+
+#----------TÜM İŞLERİ GÖSTER
 ###
 GET http://{{localhost}}:3000/jobs
 
+
+#----------SPESİFİK İŞ GÖSTER
 ###
 GET http://{{localhost}}:3000/jobs/3
 
+
+#----------İŞ SİLME
 ###
 DELETE http://{{localhost}}:3000/jobs/4
+
+
+#----------İŞ YARATMA
 ###
 POST http://{{localhost}}:3000/createjobs
 Content-Type: application/json
@@ -21,22 +31,25 @@ Content-Type: application/json
     "jobDescription": "denemeeeeeee"
 }
 
+#----------İŞ GÜNCELLEME
 ###
 PATCH http://{{localhost}}:3000/jobs/1
 Content-Type: application/json
 
 {
-    "jobName": "deneme",
+    "jobName": "as",
     "jobDescription": "denemeeeeeee"
 }
 
 
 #--------------------------------------user---------------------------
+
+#----------PROFİL GÖRÜNTÜLEME
 ###
 GET http://{{localhost}}:3000/users/1
 
 
-
+#----------PROFİL GÜNCELLEME
 ###
 PATCH http://{{localhost}}:3000/users/1
 Content-Type: application/json
@@ -50,6 +63,8 @@ Content-Type: application/json
       "current_job": "current_job"
 
 }
+
+#----------ŞİFRE DEĞİŞTİRME
 ###
 PATCH http://{{localhost}}:3000/users/resetPassword/1
 Content-Type: application/json
@@ -61,16 +76,20 @@ Content-Type: application/json
 
 }
 
-#BAŞVURULARIM
-###
 
+
+#----------KİŞİNİN KENDİ BAŞVURULARI
+###
 GET http://{{localhost}}:3000/user/1/applications
 
-#BAŞVUR
-#İD'Sİ 2 OLAN İŞE BAŞVUR İD'Sİ 1 OLAN KULLANICI
+
+#----------İD'Sİ 2 OLAN İŞE BAŞVURSUN İD'Sİ 1 OLAN KULLANICI
 ###
 GET http://{{localhost}}:3000/user/1/apply/2
 
+
+
+#----------kullanıcı feedback göndersin
 ###
 POST http://{{localhost}}:3000/user/sendfeedback
 Content-Type: application/json
@@ -82,7 +101,11 @@ Content-Type: application/json
       "detail": "furkanbaba"  
 
 }
+
 #---------------------GUEST-------------------------------
+
+
+#----------login ol
 ###
 POST http://{{localhost}}:3000/login
 Content-Type: application/json
@@ -91,8 +114,13 @@ Content-Type: application/json
       "email": "email",
       "password": "furkanbaba"     
 }
+
+#----------id'si 2 olan işi göster giriş olmadan
 ###
 GET http://{{localhost}}:3000/guest/jobs/2
+
+
+#----------kayıt ol
 ###
 POST http://{{localhost}}:3000/register
 Content-Type: application/json
@@ -106,6 +134,7 @@ Content-Type: application/json
       "current_job": "current_job"
 }
 
+#----------feedback gönder giriş yapmadan
 ###
 POST http://{{localhost}}:3000/guest/sendfeedback
 Content-Type: application/json
@@ -117,3 +146,22 @@ Content-Type: application/json
       "detail": "asdasdsda"  
 
 }
+
+
+#-----ADMİN----------ADMİN----------ADMİN----------ADMİN-------ADMİN-----
+
+#----------tüm kullanıcılar
+###
+GET http://{{localhost}}:3000/admin/users
+
+#----------spesifik kullanıcı
+###
+GET http://{{localhost}}:3000/admin/users/2
+
+#----------bir işe başvuran tüm kişiler
+###
+GET http://{{localhost}}:3000/admin/jobs/4/applicants
+
+#----------bir kişinin başvurduğu tüm işler
+###
+GET http://{{localhost}}:3000/admin/users/1/applications

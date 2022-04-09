@@ -6,22 +6,22 @@ exports.seed = function (knex) {
       // Inserts seed entries
       return knex("messages").insert([
         {
-          name: "ffurkan",
+          name: "furkan",
           lastName: "baba",
           email: "furkan@gmail.com",
-          detail: "askfamsdf",
+          detail: "i bulamadım hala lütfen bana dönüş yapın",
         },
         {
-          name: "ffurkan",
+          name: "furkan",
           lastName: "baba",
           email: "furkan@gmail.com",
-          detail: "askfamsdf",
+          detail: "çok güzel bir siteniz var",
         },
         {
-          name: "ffurkan",
+          name: "furkan",
           lastName: "baba",
           email: "furkan@gmail.com",
-          detail: "askfamsdf",
+          detail: "Bu site çok bozdu",
         },
       ]);
     });
