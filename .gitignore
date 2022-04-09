@@ -133,3 +133,4 @@ berkay_todo
 
 /node_modules
 .env
+yarn.lock
