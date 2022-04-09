@@ -1,0 +1,119 @@
+@localhost=[::1]
+
+GET http://{{localhost}}:3000/ HTTP/1.1
+
+
+#--------------------------JOBS----------------------------
+###
+GET http://{{localhost}}:3000/jobs
+
+###
+GET http://{{localhost}}:3000/jobs/3
+
+###
+DELETE http://{{localhost}}:3000/jobs/4
+###
+POST http://{{localhost}}:3000/createjobs
+Content-Type: application/json
+
+{
+    "jobName": "deneme",
+    "jobDescription": "denemeeeeeee"
+}
+
+###
+PATCH http://{{localhost}}:3000/jobs/1
+Content-Type: application/json
+
+{
+    "jobName": "deneme",
+    "jobDescription": "denemeeeeeee"
+}
+
+
+#--------------------------------------user---------------------------
+###
+GET http://{{localhost}}:3000/users/1
+
+
+
+###
+PATCH http://{{localhost}}:3000/users/1
+Content-Type: application/json
+
+{
+      "name": "name",
+      "lastName": "lastName",
+      "email": "email",
+      "address": "address",
+      "phone": "phone",
+      "current_job": "current_job"
+
+}
+###
+PATCH http://{{localhost}}:3000/users/resetPassword/1
+Content-Type: application/json
+
+{
+      "oldPassword": "123456",
+      "newPassword1": "furkanbaba",
+      "newPassword2": "furkanbaba"   
+
+}
+
+#BAŞVURULARIM
+###
+
+GET http://{{localhost}}:3000/user/1/applications
+
+#BAŞVUR
+#İD'Sİ 2 OLAN İŞE BAŞVUR İD'Sİ 1 OLAN KULLANICI
+###
+GET http://{{localhost}}:3000/user/1/apply/2
+
+###
+POST http://{{localhost}}:3000/user/sendfeedback
+Content-Type: application/json
+
+{
+      "name": "123456",
+      "lastName": "furkanbaba",
+      "email": "furkanbaba",
+      "detail": "furkanbaba"  
+
+}
+#---------------------GUEST-------------------------------
+###
+POST http://{{localhost}}:3000/login
+Content-Type: application/json
+
+{      
+      "email": "email",
+      "password": "furkanbaba"     
+}
+###
+GET http://{{localhost}}:3000/guest/jobs/2
+###
+POST http://{{localhost}}:3000/register
+Content-Type: application/json
+
+{
+      "name": "mahmut",
+      "lastName": "kiraz",
+      "email": "abc",
+      "address": "address",
+      "phone": "0535",
+      "current_job": "current_job"
+}
+
+###
+POST http://{{localhost}}:3000/guest/sendfeedback
+Content-Type: application/json
+
+{
+      "name": "asd",
+      "lastName": "asdasddas",
+      "email": "asdasdsda",
+      "detail": "asdasdsda"  
+
+}
