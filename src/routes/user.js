@@ -10,16 +10,16 @@ const routes = [
   //   handler: userControllers.userSettings,
   // },
 
-  // {
-  //   method: "POST",
-  //   url: "/user/login",
-  //   handler: userControllers.,
-  // },
-  //   {
-  //     method: "GET",
-  //     url: "/jobs",
-  //     handler: userControllers.getAllJobs,
-  //   },
+  {
+    method: "GET",
+    url: "/jobs",
+    handler: userControllers.getAllJobs,
+  },
+  {
+    method: "GET",
+    url: "/jobs/:id",
+    handler: userControllers.getOneJob,
+  },
   {
     method: "GET",
     url: "/users/:id",
@@ -27,7 +27,7 @@ const routes = [
   },
   {
     method: "PATCH",
-    url: "/users/:id",
+    url: "/users/updateProfile/:id",
     handler: userControllers.updateProfile,
   },
   {

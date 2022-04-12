@@ -39,23 +39,33 @@ exports.registerGuest = async (req, res) => {
       lastName: req.body.lastName,
       email: req.body.email,
       address: req.body.address,
+      phone: req.body.phone,
       current_job: req.body.current_job,
-      photo: req.body.photo,
+      password: req.body.password1,
     };
-    // create token
-    // json web tokeni için giriş yapma kısmındaki token'a gerek yok
-    const isUserExists = await model.findOne("user", {
-      email: createdObject.email,
-    }); // user verisini komple dönüyor
+    (password1 = req.body.password1), (password2 = req.body.password2);
+    if (password1 == password2 && password1 !== null) {
+      // create token
+      // json web tokeni için giriş yapma kısmındaki token'a gerek yok
+      const isUserExists = await model.findOne("user", {
+        email: createdObject.email,
+      }); // user verisini komple dönüyor
 
-    if (isUserExists) {
+      if (isUserExists) {
+        return res.status(409).send({
+          status: "fail",
+          msg: "Bu kullanıcı adı veya emaile kayıtlı hesap bulunmaktadır.",
+        });
+      }
+      // save user to db
+      const registered = await model.insert("user", createdObject);
+      res.send("Hesap Başarıyla Oluşturuldu");
+    } else {
       return res.status(409).send({
         status: "fail",
-        msg: "Bu kullanıcı adı veya emaile kayıtlı hesap bulunmaktadır.",
+        msg: "parolalar uyuşmuyor.",
       });
     }
-    // save user to db
-    const registered = await model.insert("user", createdObject);
   } catch (err) {
     console.log("error in inserting", "*** register error***", err, "\n\n");
     res.status(403).send({ status: "error", msg: err });

@@ -48,6 +48,12 @@ const routes = [
     url: "/admin/update/jobs/:id",
     handler: adminControllers.updateJobs,
   },
+  //TÜM BAŞVURULAR
+  {
+    method: "GET",
+    url: "/admin/applications",
+    handler: adminControllers.allApplications,
+  },
   //BAŞVURUYU REDDET
   {
     method: "GET",
@@ -78,6 +84,16 @@ const routes = [
     method: "GET",
     url: "/admin/application/:jobID/:userID",
     handler: adminControllers.singleApplication,
+  },
+  {
+    method: "GET",
+    url: "/admin/feedbacks",
+    handler: adminControllers.allFeedbacks,
+  },
+  {
+    method: "GET",
+    url: "/admin/feedback/:id",
+    handler: adminControllers.singleFeedback,
   },
   // {
   //   method: "POST",

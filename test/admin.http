@@ -62,9 +62,13 @@ Content-Type: application/json
 #----------BAŞVURULAR------------------
 #----------BAŞVURULAR------------------
 
+#----------tüm başvurular
+###
+GET http://{{localhost}}:3000/admin/applications
+
 #----------bir işe başvuran tüm kişiler
 ###
-GET http://{{localhost}}:3000/admin/jobs/1/applicants
+GET http://{{localhost}}:3000/admin/jobs/2/applicants
 
 #----------bir kişinin başvurduğu tüm işler
 ###
@@ -83,3 +87,15 @@ GET http://{{localhost}}:3000/admin/application/1/accept/1
 
 ###
 GET http://{{localhost}}:3000/admin/application/1/reject/1
+
+#--------------FEEDBACKS--------
+#--------------FEEDBACKS--------
+#--------------FEEDBACKS--------
+
+#Bütün Mesajları Getir
+###
+GET http://{{localhost}}:3000/admin/feedbacks
+
+#Spesifik Mesaj
+###
+GET http://{{localhost}}:3000/admin/feedback/2

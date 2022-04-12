@@ -15,6 +15,34 @@ exports.allJobsAdmin = async (req, res) => {
   });
 };
 
+exports.allFeedbacks = async (req, res) => {
+  let response = await Admin.findAll("messages");
+  res.status(200).send({
+    status: "success",
+    msg: "Tüm İşler Gösterildi.",
+    response,
+  });
+};
+
+exports.singleFeedback = async (req, res) => {
+  try {
+    messageID = req.params.id;
+    let response = await model.findOne("messages", { id: messageID });
+    res.send({ response });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.allApplications = async (req, res) => {
+  let response = await Admin.findAll("archive");
+  res.status(200).send({
+    status: "success",
+    msg: "Tüm Başvurular Gösterildi.",
+    response,
+  });
+};
+
 exports.getOneJob = async (req, res) => {
   try {
     jobID = req.params.id;

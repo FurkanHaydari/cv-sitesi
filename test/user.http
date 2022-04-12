@@ -1,18 +1,18 @@
 @localhost=[::1]
-
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZya25oeWRyQGdtYWlsLmNvbSIsImlhdCI6MTY0OTc4NzYyNywiZXhwIjoxNjQ5OTYwNDI3fQ.GHrOlMzWS9IM3TGchmf-U1qcGdtFUetpwD23Pf79Zx0
 
 #----------PROFİL GÖRÜNTÜLEME
 ###
-GET http://{{localhost}}:3000/users/1
+GET http://{{localhost}}:3000/users/2
 
 
 #----------PROFİL GÜNCELLEME
 ###
-PATCH http://{{localhost}}:3000/users/1
+PATCH http://{{localhost}}:3000/users/updateProfile/2
 Content-Type: application/json
 
 {
-      "name": "name",
+      "name": "mataracıı",
       "lastName": "lastName",
       "email": "email",
       "address": "address",
@@ -45,14 +45,14 @@ GET http://{{localhost}}:3000/jobs/3
 
 #----------İD'Sİ 2 OLAN İŞE BAŞVURSUN İD'Sİ 1 OLAN KULLANICI
 ###
-GET http://{{localhost}}:3000/user/1/apply/2
+GET http://{{localhost}}:3000/user/3/apply/9
 
 
 
 
 #----------KİŞİNİN KENDİ BAŞVURULARI
 ###
-GET http://{{localhost}}:3000/user/1/applications
+GET http://{{localhost}}:3000/user/3/applications
 
 
 

@@ -6,7 +6,7 @@ POST http://{{localhost}}:3000/login
 Content-Type: application/json
 
 {      
-      "email": "email",
+      "email": "frknhydr@gmail.com",
       "password": "furkanbaba"     
 }
 
@@ -17,14 +17,16 @@ GET http://{{localhost}}:3000/guest/jobs/2
 
 #----------kayıt ol
 ###
-POST http://{{localhost}}:3000/register
+POST http://{{localhost}}:3000/guest/register
 Content-Type: application/json
 
 {
       "name": "mahmut",
       "lastName": "kiraz",
-      "email": "abc",
+      "email": "ağağağ",
       "address": "address",
+      "password1":"absc",
+      "password2":"absc",
       "phone": "0535",
       "current_job": "current_job"
 }

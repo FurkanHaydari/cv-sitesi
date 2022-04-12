@@ -6,4 +6,8 @@ admin ve user için authantication ve authorization
 
 tüm servislerde authorization ve authentication kontrolü
 
+cv yükleme servisi
+
+fotoğraf yükleme servisi
+
 parola hashleme
