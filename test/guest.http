@@ -1,0 +1,44 @@
+@localhost=[::1]
+
+#----------login ol
+###
+POST http://{{localhost}}:3000/login
+Content-Type: application/json
+
+{      
+      "email": "email",
+      "password": "furkanbaba"     
+}
+
+#----------id'si 2 olan işi göster giriş olmadan
+###
+GET http://{{localhost}}:3000/guest/jobs/2
+
+
+#----------kayıt ol
+###
+POST http://{{localhost}}:3000/register
+Content-Type: application/json
+
+{
+      "name": "mahmut",
+      "lastName": "kiraz",
+      "email": "abc",
+      "address": "address",
+      "phone": "0535",
+      "current_job": "current_job"
+}
+
+#----------feedback gönder giriş yapmadan
+###
+POST http://{{localhost}}:3000/guest/sendfeedback
+Content-Type: application/json
+
+{
+      "name": "asd",
+      "lastName": "asdasddas",
+      "email": "asdasdsda",
+      "detail": "asdasdsda"  
+
+}
+

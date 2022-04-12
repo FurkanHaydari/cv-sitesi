@@ -1,0 +1,71 @@
+@localhost=[::1]
+
+
+#----------PROFİL GÖRÜNTÜLEME
+###
+GET http://{{localhost}}:3000/users/1
+
+
+#----------PROFİL GÜNCELLEME
+###
+PATCH http://{{localhost}}:3000/users/1
+Content-Type: application/json
+
+{
+      "name": "name",
+      "lastName": "lastName",
+      "email": "email",
+      "address": "address",
+      "phone": "phone",
+      "current_job": "current_job"
+
+}
+
+#----------ŞİFRE DEĞİŞTİRME
+###
+PATCH http://{{localhost}}:3000/users/resetPassword/1
+Content-Type: application/json
+
+{
+      "oldPassword": "123456",
+      "newPassword1": "furkanbaba",
+      "newPassword2": "furkanbaba"   
+
+}
+
+#----------TÜM İŞLERİ GÖSTER
+###
+GET http://{{localhost}}:3000/jobs
+
+
+#----------SPESİFİK İŞ GÖSTER
+###
+GET http://{{localhost}}:3000/jobs/3
+
+
+#----------İD'Sİ 2 OLAN İŞE BAŞVURSUN İD'Sİ 1 OLAN KULLANICI
+###
+GET http://{{localhost}}:3000/user/1/apply/2
+
+
+
+
+#----------KİŞİNİN KENDİ BAŞVURULARI
+###
+GET http://{{localhost}}:3000/user/1/applications
+
+
+
+
+#----------kullanıcı feedback göndersin
+###
+POST http://{{localhost}}:3000/user/sendfeedback
+Content-Type: application/json
+
+{
+      "name": "123456",
+      "lastName": "furkanbaba",
+      "email": "furkanbaba",
+      "detail": "furkanbaba"  
+
+}

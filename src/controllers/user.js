@@ -96,6 +96,27 @@ exports.myApplications = async (req, res) => {
   }
 };
 
+exports.getAllJobs = async (req, res) => {
+  try {
+    let response = await model.findAllJobs("jobs");
+    res
+      .status(200)
+      .send({ status: "success", msg: "Tüm haberler gösterildi.", response });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.getOneJob = async (req, res) => {
+  try {
+    jobID = req.params.id;
+    let response = await model.findOne("jobs", { job_ID: jobID });
+    res.send({ response });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 exports.sendFeedback = async (req, res) => {
   try {
     feedback = {

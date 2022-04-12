@@ -1,0 +1,9 @@
+admin ve user için authantication ve authorization
+
+üye olurken mail sistemi
+
+şifre unutunca mail sistemi
+
+tüm servislerde authorization ve authentication kontrolü
+
+parola hashleme

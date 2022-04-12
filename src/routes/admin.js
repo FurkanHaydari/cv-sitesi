@@ -19,15 +19,35 @@ const routes = [
   //TÜM İŞLERİ GETİR
   {
     method: "GET",
-    url: "/admin/jobs",
+    url: "/admin/alljobs",
     handler: adminControllers.allJobsAdmin,
   },
-  //SPESİFİK İŞİ GETİR
-  // {
-  //   method: "GET",
-  //   url: "/admin/jobs",
-  //   handler: adminControllers.singleUserAdmin,
-  // },
+  {
+    method: "GET",
+    url: "/admin/openjobs",
+    handler: adminControllers.allOpenJobsAdmin,
+  },
+  //BİR İŞİ GETİR
+  {
+    method: "GET",
+    url: "/admin/jobs/:id",
+    handler: adminControllers.getOneJob,
+  },
+  {
+    method: "POST",
+    url: "/admin/create/jobs",
+    handler: adminControllers.createJobs,
+  },
+  {
+    method: "DELETE",
+    url: "/admin/delete/jobs/:id",
+    handler: adminControllers.deleteJob,
+  },
+  {
+    method: "PATCH",
+    url: "/admin/update/jobs/:id",
+    handler: adminControllers.updateJobs,
+  },
   //BAŞVURUYU REDDET
   {
     method: "GET",
@@ -52,6 +72,12 @@ const routes = [
     method: "GET",
     url: "/admin/users/:userID/applications",
     handler: adminControllers.kisininBaşvurduğTumJobsAdmin,
+  },
+  //BAŞVURUYU REDDET
+  {
+    method: "GET",
+    url: "/admin/application/:jobID/:userID",
+    handler: adminControllers.singleApplication,
   },
   // {
   //   method: "POST",

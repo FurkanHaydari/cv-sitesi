@@ -1,0 +1,85 @@
+@localhost=[::1]
+
+#-----------KULLANICILAR--------------
+#-----------KULLANICILAR--------------
+#-----------KULLANICILAR--------------
+
+#----------tüm kullanıcılar
+###
+GET http://{{localhost}}:3000/admin/users
+
+#----------spesifik kullanıcı
+###
+GET http://{{localhost}}:3000/admin/users/2
+
+
+
+#--------------İŞLER------------------------
+#--------------İŞLER------------------------
+#--------------İŞLER------------------------
+
+
+#----------tüm işler
+###
+GET http://{{localhost}}:3000/admin/alljobs
+
+#----------başvuru yapılabilen işler
+###
+GET http://{{localhost}}:3000/admin/openjobs
+
+#----------spesifik iş
+###
+GET http://{{localhost}}:3000/admin/jobs/2
+
+
+#----------İŞ SİLME
+###
+DELETE http://{{localhost}}:3000/admin/delete/jobs/8
+
+
+#----------İŞ YARATMA
+###
+POST http://{{localhost}}:3000/admin/create/jobs
+Content-Type: application/json
+
+{
+    "jobName": "matar beyin asistanı",
+    "jobDescription": "asistan"
+}
+
+#----------İŞ GÜNCELLEME
+###
+PATCH http://{{localhost}}:3000/admin/update/jobs/1
+Content-Type: application/json
+
+{
+    "jobName": "yazılım ",
+    "jobDescription": "belki de yazılım"
+}
+
+
+#----------BAŞVURULAR------------------
+#----------BAŞVURULAR------------------
+#----------BAŞVURULAR------------------
+
+#----------bir işe başvuran tüm kişiler
+###
+GET http://{{localhost}}:3000/admin/jobs/1/applicants
+
+#----------bir kişinin başvurduğu tüm işler
+###
+GET http://{{localhost}}:3000/admin/users/1/applications
+
+#Spesifik başvuru göster
+###
+GET http://{{localhost}}:3000/admin/application/1/1
+
+#Başvuru ONAY
+
+###
+GET http://{{localhost}}:3000/admin/application/1/accept/1
+
+#Başvuru RET
+
+###
+GET http://{{localhost}}:3000/admin/application/1/reject/1

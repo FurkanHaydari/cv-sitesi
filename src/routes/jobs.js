@@ -21,21 +21,7 @@ const routes = [
     url: "/jobs/:id",
     handler: jobsControllers.getOneJob,
   },
-  {
-    method: "POST",
-    url: "/createjobs",
-    handler: jobsControllers.createJobs,
-  },
-  {
-    method: "DELETE",
-    url: "/jobs/:id",
-    handler: jobsControllers.deleteJobs,
-  },
-  {
-    method: "PATCH",
-    url: "/jobs/:id",
-    handler: jobsControllers.updateJobs,
-  },
+
   // {
   //   method: 'POST',
   //   url: '/user/feedback',

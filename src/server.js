@@ -9,14 +9,11 @@ fastify.register(require("fastify-cors"), {
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
 });
 
-const jobRoutes = require("./routes/jobs");
 const userRoutes = require("./routes/user");
 const guestRoutes = require("./routes/guest");
 const adminRoutes = require("./routes/admin");
 
-jobRoutes.forEach((route, index) => {
-  fastify.route(route);
-});
+
 userRoutes.forEach((route, index) => {
   fastify.route(route);
 });
